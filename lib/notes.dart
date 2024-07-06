@@ -112,6 +112,8 @@ used inside class only,,, used with other modifiers in run time, must used with 
 //   }
 // }
 
+import 'package:flutter/material.dart';
+
 ////////////////////////
 
 /* 
@@ -204,4 +206,61 @@ class SmartBoard extends Machine {
 
 class Projector extends Machine {
   Projector(super.brandName, super.versionNumber);
+}
+
+// interface class Serilizable {
+//   toJson() {}
+// }
+
+// class User implements Serilizable {
+//   @override
+//   toJson() {
+//     // TODO: implement toJson
+//     throw UnimplementedError();
+//   }
+// }
+
+// class BankAccount {
+//   num balance;
+//   final String owner;
+
+//   BankAccount(this.balance, this.owner);
+
+//   // deposit() {}
+
+//   withdraw(num overDrawnValue) {
+//     if (overDrawnValue <= balance) {
+//       balance = balance - overDrawnValue;
+//       print(balance);
+//     } else {
+//       throw HandleOverDrawn;
+//     }
+//   }
+// }
+
+// class HandleOverDrawn implements Exception {}
+
+///////////////////////////////////////
+//////////////  Flutter ///////////////
+///////////////////////////////////////
+
+/* 
+in flutter every UI component is a widget.
+the ui component (widget) must extends from stateless or statefull widget.
+to inherit "build" function.
+
+
+
+*/
+
+class TextAndButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text("Hello"),
+        ElevatedButton(onPressed: () {}, child: Text("Press here"))
+      ],
+    );
+  }
 }

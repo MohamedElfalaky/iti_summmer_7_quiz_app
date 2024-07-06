@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:iti_summmer_7_quiz_app/notes.dart';
 
 void main() {
-  // Human h1 = Human();
-  Student s1 = Student(
-    name: "Mohamed",
-    age: 28,
-    gender: "Male",
-    nationality: "Egtptian",
-    // studentId: 1123
-  );
+  // // Human h1 = Human();
+  // Student s1 = Student(
+  //   name: "Mohamed",
+  //   age: 28,
+  //   gender: "Male",
+  //   nationality: "Egtptian",
+  //   // studentId: 1123
+  // );
 
-  s1.setStudentId = 767676767867;
-  print(s1.getStudentId);
+  // s1.setStudentId = 767676767867;
+  // print(s1.getStudentId);
 
   // print(s1.studentId);
 
@@ -93,6 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              TextAndButton(),
               const Text(
                 'لقد قمت بالضغط علي هذا الزر هذا العدد من المرات',
                 style: TextStyle(
