@@ -1,12 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:iti_summmer_7_quiz_app/lec3_notes.dart';
+import 'package:iti_summmer_7_quiz_app/notes.dart';
 
 void main() {
-  Person person1 =
-      Person(name: "Hassan", age: 30, isMale: true, isMarried: false);
-  Person person2 =
-      Person(name: "Sara", age: 25, isMale: false, isMarried: true);
+  // Human h1 = Human();
+  Student s1 = Student(
+    name: "Mohamed",
+    age: 28,
+    gender: "Male",
+    nationality: "Egtptian",
+    // studentId: 1123
+  );
 
+  s1.setStudentId = 767676767867;
+  print(s1.getStudentId);
+
+  // print(s1.studentId);
+
+  // s1.studentId = 2837622;
+
+  // print(s1.studentId);
+
+  // Person person1 =
+  //     Person(name: "Hassan", age: 30, isMale: true, isMarried: false);
+  // Person person2 =
+  //     Person(name: "Sara", age: 25, isMale: false, isMarried: true);
+
+  // Person.z;
+
+  // person1.calculatePersonRealAge(yearsDifferance: 3, x: "");
   // person1.name = "Khaled";
   // person1.isMale = true;
   // person1.age = 20;
@@ -15,8 +36,8 @@ void main() {
   // person2.isMale = false;
   // person2.age = 18;
 
-  person1.printPersonData();
-  person2.printPersonData();
+  // person1.printPersonData();
+  // person2.printPersonData();
 
   runApp(const MyApp());
 }
