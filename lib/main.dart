@@ -2,43 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iti_summmer_7_quiz_app/notes.dart';
 
 void main() {
-  // // Human h1 = Human();
-  // Student s1 = Student(
-  //   name: "Mohamed",
-  //   age: 28,
-  //   gender: "Male",
-  //   nationality: "Egtptian",
-  //   // studentId: 1123
-  // );
-
-  // s1.setStudentId = 767676767867;
-  // print(s1.getStudentId);
-
-  // print(s1.studentId);
-
-  // s1.studentId = 2837622;
-
-  // print(s1.studentId);
-
-  // Person person1 =
-  //     Person(name: "Hassan", age: 30, isMale: true, isMarried: false);
-  // Person person2 =
-  //     Person(name: "Sara", age: 25, isMale: false, isMarried: true);
-
-  // Person.z;
-
-  // person1.calculatePersonRealAge(yearsDifferance: 3, x: "");
-  // person1.name = "Khaled";
-  // person1.isMale = true;
-  // person1.age = 20;
-
-  // person2.name = "Sara";
-  // person2.isMale = false;
-  // person2.age = 18;
-
-  // person1.printPersonData();
-  // person2.printPersonData();
-
   runApp(const MyApp());
 }
 
@@ -48,83 +11,80 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'quiz app',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'السلام عليكم، أهلاً عالم.'),
+      home: TestScreen(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
-
+class TestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.logout),
+          onPressed: () {},
         ),
-        body: Center(
+        actions: [
+          Icon(Icons.message),
+          SizedBox(
+            width: 12,
+          ),
+          Icon(
+            Icons.notification_add,
+          ),
+          SizedBox(
+            width: 12,
+          ),
+          Icon(Icons.search),
+          SizedBox(
+            width: 12,
+          )
+        ],
+        title: Text("Quiz app"),
+        // centerTitle: false,
+        backgroundColor: Colors.deepOrangeAccent,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(22),
+        child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextAndButton(),
-              const Text(
-                'لقد قمت بالضغط علي هذا الزر هذا العدد من المرات',
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.red,
-                    fontWeight: FontWeight.bold),
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                "1st Qestion",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
+                "What is the last country to host the world cup?",
+                style: TextStyle(fontSize: 16),
               ),
+              SizedBox(
+                height: 22,
+              ),
+              ElevatedButton(onPressed: () {}, child: Text("USA")),
+              ElevatedButton(onPressed: () {}, child: Text("Qatar")),
+              ElevatedButton(onPressed: () {}, child: Text("France")),
+              ElevatedButton(onPressed: () {}, child: Text("Egypt")),
             ],
           ),
         ),
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FloatingActionButton(
-              onPressed: _incrementCounter,
-              tooltip: 'Increment',
-              child: const Icon(Icons.add),
-            ),
-            SizedBox(
-              width: 100,
-            ),
-            FloatingActionButton(
-              onPressed: _decrementCounter,
-              tooltip: 'Decrement',
-              child: const Icon(Icons.minimize),
-            )
-          ],
-        ));
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: "Settings"),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Person"),
+        ],
+      ),
+    );
   }
 }
