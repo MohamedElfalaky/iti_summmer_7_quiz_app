@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:iti_summmer_7_quiz_app/notes.dart';
+import 'package:iti_summmer_7_quiz_app/screens/category_screen.dart';
 import 'package:iti_summmer_7_quiz_app/screens/landing_screen.dart';
 import 'package:iti_summmer_7_quiz_app/screens/questions_screen.dart';
 import 'dart:io' show Platform;
+
+import 'package:iti_summmer_7_quiz_app/screens/score_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'quiz app',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
       home: LandingScreen(),

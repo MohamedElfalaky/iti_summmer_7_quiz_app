@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:iti_summmer_7_quiz_app/data/quiz_app_data.dart';
+import 'package:iti_summmer_7_quiz_app/screens/score_screen.dart';
 
-class QuestionsScreen extends StatelessWidget {
+class QuestionsScreen extends StatefulWidget {
+  @override
+  State<QuestionsScreen> createState() => _QuestionsScreenState();
+}
+
+class _QuestionsScreenState extends State<QuestionsScreen> {
+  int _questionsIndex = 0;
+  int _totalScore = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,20 +47,45 @@ class QuestionsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                "1st Qestion",
+                "Question number ${_questionsIndex + 1}",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Text(
-                "What is the last country to host the world cup?",
+                iqQuestions[_questionsIndex]['question'],
                 style: TextStyle(fontSize: 16),
               ),
               SizedBox(
                 height: 22,
               ),
-              ElevatedButton(onPressed: () {}, child: Text("USA")),
-              ElevatedButton(onPressed: () {}, child: Text("Qatar")),
-              ElevatedButton(onPressed: () {}, child: Text("France")),
-              ElevatedButton(onPressed: () {}, child: Text("Egypt")),
+              for (int i = 0;
+                  i < (iqQuestions[_questionsIndex]['answers'] as List).length;
+                  i++)
+                ElevatedButton(
+                    onPressed: () {
+                      _totalScore = _totalScore +
+                          iqQuestions[_questionsIndex]['answers'][i]
+                              ['score'] as int;
+                      if (_questionsIndex < (iqQuestions.length - 1)) {
+                        setState(() {
+                          _questionsIndex++;
+                        });
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute<void>(
+                            builder: (BuildContext context) => ScoreScreen(
+                              totalScore: _totalScore,
+                              numberOfQuestions: iqQuestions.length,
+                            ),
+                          ),
+                        );
+                      }
+
+                      print('your index is ${_questionsIndex}');
+                      print('your total score is ${_totalScore}');
+                    },
+                    child: Text(
+                        iqQuestions[_questionsIndex]['answers'][i]['ans'])),
             ],
           ),
         ),
