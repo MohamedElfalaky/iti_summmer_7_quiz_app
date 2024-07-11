@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:iti_summmer_7_quiz_app/notes.dart';
-import 'package:iti_summmer_7_quiz_app/screens/category_screen.dart';
-import 'package:iti_summmer_7_quiz_app/screens/landing_screen.dart';
-import 'package:iti_summmer_7_quiz_app/screens/questions_screen.dart';
-import 'dart:io' show Platform;
 
-import 'package:iti_summmer_7_quiz_app/screens/score_screen.dart';
+import 'package:iti_summmer_7_quiz_app/screens/play_with_statemanagement.dart';
+
+import 'dart:io' show Platform;
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
-      home: LandingScreen(),
+      home: PlayWithStatemanagement(),
     );
   }
 }
